@@ -1,0 +1,247 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4644771529806286176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4644771529806286179}
+  - component: {fileID: 4644771529806286178}
+  m_Layer: 0
+  m_Name: GameFlowManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4644771529806286179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644771529806286176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4644771529806286178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644771529806286176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8486c031590270a999eb3444bb4568a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childPuzzleData:
+  - flag: 11
+    clueReference:
+      Guid:
+        Data1: 120607367
+        Data2: 1339099553
+        Data3: -716621673
+        Data4: -1181090904
+      Path: "event:/Voces/Ni\xF1a/Que_le_ha_pasado"
+    clueSub: 10
+    feedbackRef:
+      Guid:
+        Data1: -1972994896
+        Data2: 1239112323
+        Data3: -1054336335
+        Data4: 1181197936
+      Path: event:/Voces/Catstronauta/Feedback/1_No_comprrrendo
+    feedbackSub: 15
+    confettiCenter: {fileID: 0}
+  - flag: 12
+    clueReference:
+      Guid:
+        Data1: -993302514
+        Data2: 1287264009
+        Data3: -130366573
+        Data4: -1571298101
+      Path: "event:/Voces/Ni\xF1a/Pero_no_puedo"
+    clueSub: 11
+    feedbackRef:
+      Guid:
+        Data1: 758386376
+        Data2: 1317396072
+        Data3: 1139178154
+        Data4: 327364316
+      Path: event:/Voces/Catstronauta/Feedback/2_Miauravilloso
+    feedbackSub: 16
+    confettiCenter: {fileID: 0}
+  - flag: 8
+    clueReference:
+      Guid:
+        Data1: 1310454328
+        Data2: 1076341994
+        Data3: -59665264
+        Data4: -1641709947
+      Path: "event:/Voces/Ni\xF1a/En_esa_salgo"
+    clueSub: 12
+    feedbackRef:
+      Guid:
+        Data1: -1869608239
+        Data2: 1308167039
+        Data3: -2141624435
+        Data4: -1837214069
+      Path: event:/Voces/Catstronauta/Feedback/3_La_matriz
+    feedbackSub: 17
+    confettiCenter: {fileID: 0}
+  - flag: 9
+    clueReference:
+      Guid:
+        Data1: -1932890854
+        Data2: 1256661497
+        Data3: -268865602
+        Data4: 542423150
+      Path: "event:/Voces/Ni\xF1a/Sol_fa_mi"
+    clueSub: 13
+    feedbackRef:
+      Guid:
+        Data1: 876620938
+        Data2: 1150063323
+        Data3: -714766973
+        Data4: -1919386682
+      Path: "event:/Voces/Catstronauta/Feedback/4_Miagn\xEDfico"
+    feedbackSub: 18
+    confettiCenter: {fileID: 0}
+  - flag: 10
+    clueReference:
+      Guid:
+        Data1: -2024569147
+        Data2: 1135483596
+        Data3: -888115822
+        Data4: -715358423
+      Path: "event:/Voces/Ni\xF1a/Fium"
+    clueSub: 14
+    feedbackRef:
+      Guid:
+        Data1: -723171672
+        Data2: 1101529159
+        Data3: 1028052865
+        Data4: -1726463711
+      Path: event:/Voces/Catstronauta/Feedback/5_El_sistema_de_encapsulamiauntico
+    feedbackSub: 19
+    confettiCenter: {fileID: 0}
+  needToClickText: {fileID: 0}
+  fadeInFromBlack: {fileID: 0}
+  playerInput: {fileID: 0}
+  catTransform: {fileID: 0}
+  confettiPrefab: {fileID: 1440938041754639200, guid: 312d7e0d36f8df84ea28739293aac56b, type: 3}
+  backgroundMusicReference:
+    Guid:
+      Data1: 1373004720
+      Data2: 1104705776
+      Data3: 1811651482
+      Data4: 1271547014
+    Path: event:/Background
+  secondMeteoriteImpactReference:
+    Guid:
+      Data1: -1700021000
+      Data2: 1270402388
+      Data3: -1292822618
+      Data4: 1714528496
+    Path: event:/Segundo_meteorito
+  goodEndingReference:
+    Guid:
+      Data1: 319742882
+      Data2: 1167806433
+      Data3: 2084684442
+      Data4: -1009818886
+    Path: event:/Final_bueno
+  badEndingReference:
+    Guid:
+      Data1: 915341027
+      Data2: 1137606435
+      Data3: -1553039706
+      Data4: -1768780186
+    Path: event:/Final_malo
+  papaVenReference:
+    Guid:
+      Data1: -80179378
+      Data2: 1222400973
+      Data3: -1941534280
+      Data4: 2063597595
+    Path: "event:/Voces/Ni\xF1a/Papa_papa"
+  catastrophicFailureReference:
+    Guid:
+      Data1: 560306454
+      Data2: 1290871619
+      Data3: -1447334222
+      Data4: 1133398148
+    Path: event:/Voces/Catstronauta/1_fallo_catastrofico
+  purgeSuggestionReference:
+    Guid:
+      Data1: 1300562911
+      Data2: 1248877523
+      Data3: -1580998732
+      Data4: 2145581063
+    Path: event:/Voces/Catstronauta/2_Catpitana_Roger
+  malfunctioningReference:
+    Guid:
+      Data1: 1505732401
+      Data2: 1233913614
+      Data3: 1981001368
+      Data4: -1339334774
+    Path: event:/Voces/Catstronauta/6_Miaulfuncionamiento
+  newBodyDetectedReference:
+    Guid:
+      Data1: -668772037
+      Data2: 1238304835
+      Data3: -1480042318
+      Data4: 1018796856
+    Path: event:/Voces/Catstronauta/3_Nuevo_cuerpo_detectado
+  newMeteoriteImpactReference:
+    Guid:
+      Data1: -1242475889
+      Data2: 1209291471
+      Data3: -11837823
+      Data4: 1245947296
+    Path: event:/Voces/Catstronauta/4_Nuevo_impacto
+  meteoriteChangeReference:
+    Guid:
+      Data1: -1291761926
+      Data2: 1154098340
+      Data3: -280916047
+      Data4: -825493672
+    Path: event:/Voces/Catstronauta/5_Por_mis_bigotes
+  overloadCoolingReference:
+    Guid:
+      Data1: 654755182
+      Data2: 1139364151
+      Data3: 684980409
+      Data4: -1805845516
+    Path: event:/Voces/Catstronauta/7_Alerta
+  stableCoolingReference:
+    Guid:
+      Data1: -607534349
+      Data2: 1084221339
+      Data3: 1685270202
+      Data4: 1045639557
+    Path: event:/Voces/Catstronauta/8_Estado_de_los_sistemas
+  seriousPuzzleCorrectRef:
+    Guid:
+      Data1: 569223372
+      Data2: 1259913675
+      Data3: -411985280
+      Data4: 1399815111
+    Path: event:/Feedback_puzles/Puzle_exitoso_serio
+  childPuzzleCorrectRef:
+    Guid:
+      Data1: 1441173176
+      Data2: 1079894844
+      Data3: 1402423215
+      Data4: 727869912
+    Path: event:/Feedback_puzles/Puzle_exitoso_infantil
