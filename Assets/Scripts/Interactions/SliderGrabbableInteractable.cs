@@ -15,17 +15,17 @@ public class SliderGrabbableInteractable : ConstrainedGrabbableInteractable
     public override void Awake()
     {
         base.Awake();
-        limitDst = (rightLimit.position.z - leftLimit.position.z);
+        limitDst = (rightLimit.position - leftLimit.position).magnitude;
     }
 
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+        
+        //clamp between limits
+        float normalizedDst = (rb.position - leftLimit.position).magnitude / limitDst;
+        rb.position = Vector3.Lerp(leftLimit.position, rightLimit.position, normalizedDst);
 
-        Vector3 pos = rb.position; 
-        pos.z = Mathf.Clamp(pos.z, leftLimit.position.z, rightLimit.position.z);
-        rb.position = pos;
-
-        OnUpdateValue.Invoke((transform.position.z - leftLimit.position.z) / limitDst);
+        OnUpdateValue.Invoke(normalizedDst);
     }
 }
