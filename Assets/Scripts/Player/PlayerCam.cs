@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
+    public static Camera cam;
     [SerializeField] private float sensX;
     [SerializeField] private float sensY;
     [SerializeField] private Transform orientation;
@@ -17,6 +18,7 @@ public class PlayerCam : MonoBehaviour
         playerInput.Controls.General.TurnCam.performed += UpdateTurnCam;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        cam = GetComponent<Camera>();
     }
     public void OnDisable()
     {

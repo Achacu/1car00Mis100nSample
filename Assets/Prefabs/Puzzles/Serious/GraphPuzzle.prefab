@@ -261,7 +261,6 @@ MonoBehaviour:
   grabDst: 1.5
   allowGrabSwap: 0
   dragAndDrop: 1
-  canBeSetKinematicBySlot: 0
   leftLimit: {fileID: 7044687747218123357}
   rightLimit: {fileID: 7044687748287900006}
 --- !u!1 &3802029543260404566
@@ -400,7 +399,6 @@ MonoBehaviour:
   grabDst: 1.5
   allowGrabSwap: 0
   dragAndDrop: 1
-  canBeSetKinematicBySlot: 0
   leftLimit: {fileID: 7044687747218123357}
   rightLimit: {fileID: 7044687748287900006}
 --- !u!1 &4342424506061141980
@@ -777,7 +775,6 @@ MonoBehaviour:
   grabDst: 1.5
   allowGrabSwap: 0
   dragAndDrop: 1
-  canBeSetKinematicBySlot: 0
   leftLimit: {fileID: 7044687747218123357}
   rightLimit: {fileID: 7044687748287900006}
 --- !u!1 &7044687747218123354

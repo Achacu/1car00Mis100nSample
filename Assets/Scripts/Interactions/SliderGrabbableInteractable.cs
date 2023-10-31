@@ -24,7 +24,7 @@ public class SliderGrabbableInteractable : ConstrainedGrabbableInteractable
         
         //clamp between limits
         float normalizedDst = (rb.position - leftLimit.position).magnitude / limitDst;
-        rb.position = Vector3.Lerp(leftLimit.position, rightLimit.position, normalizedDst);
+        if(isGrabbed) rb.position = Vector3.Lerp(leftLimit.position, rightLimit.position, normalizedDst);
 
         OnUpdateValue.Invoke(normalizedDst);
     }

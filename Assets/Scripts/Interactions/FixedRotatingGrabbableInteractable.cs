@@ -15,14 +15,14 @@ public class FixedRotatingGrabbableInteractable : ConstrainedGrabbableInteractab
     public override void FixedUpdate()
     {
         if (!isGrabbed || (rotatedAmount >= minTurnedDegrees)) return;
-        toGrabPos = transform.parent.TransformVector(GetDesiredVelocity());
+        desiredVelocity = transform.parent.TransformVector(GetDesiredVelocity());
 
 
         //print("mouse: "+Input.mousePosition +"valve: "+ Camera.main.WorldToScreenPoint(transform.position));
-        //print("toGrabPos: " + toGrabPos);
-        //Debug.DrawRay(transform.position, toGrabPos, Color.white, 2);
+        //print("desiredVelocity: " + desiredVelocity);
+        //Debug.DrawRay(transform.position, desiredVelocity, Color.white, 2);
 
-        transform.rotation = Quaternion.LookRotation(transform.forward, toGrabPos.normalized);
+        transform.rotation = Quaternion.LookRotation(transform.forward, desiredVelocity.normalized);
         rotatedAmount -= Vector3.SignedAngle(transform.up, lastDir, transform.forward);
         lastDir = transform.up;
         if (rotatedAmount >= minTurnedDegrees) FlagManager.Instance.SetFlag(FlagName.PipeValvePuzzleDone, true);
@@ -30,10 +30,9 @@ public class FixedRotatingGrabbableInteractable : ConstrainedGrabbableInteractab
     private Vector3 lastDir;
     protected override Vector3 GetDesiredVelocity()
     {
-        //FIXME CAMERA.MAIN CALL
-        Vector3 vect = (Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
-        vect.x *= -1;
-        return vect;
+        Vector3 screenObjToMouse = GetScreenSelfToMouse();
+        screenObjToMouse.x *= -1;
+        return screenObjToMouse;
     }
     protected override RigidbodyConstraints GetConstraintsWhenHeld() => constraints;
 }

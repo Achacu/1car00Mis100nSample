@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class WireGrabbableInteractable : GrabbableInteractable
 {
-    [SerializeField] private bool heldBySlot = false;
+    [SerializeField,Header("Debugging")] private bool heldBySlot = false;
     public override bool Interact(PlayerInteractionManager origin)
     {
         base.Interact(origin);
@@ -17,10 +17,6 @@ public class WireGrabbableInteractable : GrabbableInteractable
     {
         grabPosT = slot.transform;
         transform.SetPositionAndRotation(grabPosT.position, grabPosT.rotation);
-        if(canBeSetKinematicBySlot)
-        {
-            rb.isKinematic = true;
-        }
         ChangeGrabState(true);
         heldBySlot = true;
     }

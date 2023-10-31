@@ -8,11 +8,15 @@ public class GrabbableInteractable : Interactable
 {    
     public ObjectSlotInteractable.SlotType slotType;
 
-    protected bool isGrabbed = false;
     protected Rigidbody rb;
     protected Collider col;
+
+    protected bool isGrabbed = false;
     protected PlayerInteractionManager holder;
     protected Transform grabPosT;
+    protected Vector3 desiredVelocity;
+    protected float sqrdDstToGrabPos;
+
     protected bool useGravity = false;
     protected RigidbodyConstraints constraints;
 
@@ -22,9 +26,6 @@ public class GrabbableInteractable : Interactable
     [SerializeField] protected float grabDst = 1.5f;
     [SerializeField] public bool allowGrabSwap = true;
     [SerializeField] public bool dragAndDrop = false;
-    [SerializeField] protected bool canBeSetKinematicBySlot = false;
-    protected Vector3 toGrabPos;
-    protected float sqrdDstToGrabPos;
 
     public override void Awake()
     {
@@ -76,17 +77,20 @@ public class GrabbableInteractable : Interactable
     public virtual void FixedUpdate()
     {
         if (!isGrabbed) return;
-        toGrabPos = GetDesiredVelocity(); //Vector3.ProjectOnPlane(grabPosT.position - rb.position, transform.forward);
-        sqrdDstToGrabPos = toGrabPos.sqrMagnitude;
+        desiredVelocity = GetDesiredVelocity();
+        sqrdDstToGrabPos = desiredVelocity.sqrMagnitude;
         
         if (sqrdDstToGrabPos > maxSqrdDstToGrabPosUntilDrop)
         {
             holder.CurrentGrabbedInteractable = null;
             return;
         }
-        rb.velocity = GetFinalVelocity();
+        rb.velocity = GetFinalVelocity(desiredVelocity);
         if (rb.velocity.magnitude > maxSpeed) rb.velocity = rb.velocity.normalized * maxSpeed;
     }
     protected virtual Vector3 GetDesiredVelocity() => (grabPosT.position - rb.position);
-    protected virtual Vector3 GetFinalVelocity() => toGrabPos * grabSpeedMultiplier;
+    protected virtual Vector3 GetFinalVelocity(Vector3 desiredVelocity) => desiredVelocity * grabSpeedMultiplier;
+
+    //helper method
+    protected Vector3 GetScreenSelfToMouse() => Input.mousePosition - PlayerCam.cam.WorldToScreenPoint(transform.position);
 }

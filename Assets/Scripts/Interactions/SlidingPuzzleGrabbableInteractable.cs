@@ -14,11 +14,10 @@ public class SlidingPuzzleGrabbableInteractable : GrabbableInteractable
     public override void FixedUpdate()
     {
         if (!isGrabbed) return;
-        //Debug.DrawRay(transform.position, GetDesiredVelocity(), Color.white, 3);
 
-        toGrabPos = GetDesiredVelocity(); //Vector3.ProjectOnPlane(grabPosT.position - rb.position, transform.forward);
+        desiredVelocity = GetDesiredVelocity();
         
-        rb.velocity = GetFinalVelocity();
+        rb.velocity = GetFinalVelocity(desiredVelocity);
         if (rb.velocity.magnitude > maxSpeed) rb.velocity = rb.velocity.normalized * maxSpeed;
     }
     public override void ChangeGrabState(bool newState)
@@ -28,11 +27,8 @@ public class SlidingPuzzleGrabbableInteractable : GrabbableInteractable
     }
     protected override Vector3 GetDesiredVelocity()
     {
-        Vector3 moveDir =(Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position));
-        moveDir.z = 0f;
-        return transform.parent.TransformVector(moveDir);
+        Vector3 moveDir = GetScreenSelfToMouse();
+        moveDir.z = 0f; //removes local Z component to get 2D movement (local to transform.parent)
+        return transform.parent.TransformVector(moveDir); //moveDir is interpreted as local to transform.parent and transformed into world-space
     }
-//Vector3.ProjectOnPlane(grabPosT.position - rb.position, transform.up);
-    //protected override Vector3 GetFinalVelocity() => toGrabPos.normalized * grabSpeedMultiplier;
-
 }
